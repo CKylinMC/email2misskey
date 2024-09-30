@@ -1,4 +1,4 @@
-FROM golang:alpine AS Builder
+FROM dockerpull.com/golang:alpine AS Builder
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ RUN go mod download
 # Build image
 RUN go build .
 
-FROM alpine:latest AS Runner
+FROM dockerpull.com/alpine:latest AS Runner
 
 WORKDIR /app
 
